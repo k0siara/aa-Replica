@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,17 +30,21 @@ public class Pin : MonoBehaviour {
             isPinned = true;
         } else if (col.tag == "Pin") {
             if (col.transform.parent != null) {
-                foreach (Transform child in col.transform.parent) {
-                    child.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-                    transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-
-                    child.GetComponent<CircleCollider2D>().isTrigger = false;
-                    child.GetChild(0).GetComponent<BoxCollider2D>().isTrigger = false;
-                }
+                MakePinsFall(col.transform.parent);
 
                 FindObjectOfType<GameManager>().EndGame();
                 FindObjectOfType<Spawner>().SetTriger(false);
             }
+        }
+    }
+
+    private void MakePinsFall(Transform pins) {
+        foreach (Transform child in pins) {
+            child.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+
+            child.GetComponent<CircleCollider2D>().isTrigger = false;
+            child.GetChild(0).GetComponent<BoxCollider2D>().isTrigger = false;
         }
     }
 }
