@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 195347212}
   - component: {fileID: 195347216}
   - component: {fileID: 195347217}
+  - component: {fileID: 195347218}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -210,8 +211,6 @@ MonoBehaviour:
   rotator: {fileID: 1937009773}
   spawner: {fileID: 292768523}
   animator: {fileID: 195347217}
-  colDepth: 4
-  zPosition: 0
 --- !u!95 &195347217
 Animator:
   serializedVersion: 3
@@ -229,6 +228,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &195347218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 195347211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bdd774788fbc9b4283a66bc11b70b1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &292768522
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,6 +520,10 @@ Prefab:
         type: 2}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1095675595176904, guid: a26d235d91056624a82b880ef30e5cb0, type: 2}
+      propertyPath: m_TagString
+      value: Rotator
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
