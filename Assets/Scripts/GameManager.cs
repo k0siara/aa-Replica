@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using System;
 
 public class GameManager : MonoBehaviour {
 
@@ -21,7 +22,11 @@ public class GameManager : MonoBehaviour {
         colDepth = 4f;
         zPosition = 0f;
         isGameEnd = false;
-        
+
+        AddScreenColliders();
+    }
+
+    private void AddScreenColliders() {
         // Generate our empty objects
         Transform topCollider = new GameObject().transform;
         Transform bottomCollider = new GameObject().transform;
@@ -61,7 +66,7 @@ public class GameManager : MonoBehaviour {
 
     private void Update() {
         if (Input.GetButtonDown("Fire1") && isGameEnd) {
-            Restart();
+            RestartGame();
         }
     }
 
@@ -69,18 +74,21 @@ public class GameManager : MonoBehaviour {
         if (!isGameEnd) {
             isGameEnd = true;
 
-            rotator.enabled = false;
-            spawner.enabled = false;
-
+            DisableRotatorAndSpawner();
             animator.SetTrigger("EndGame");
         }
+    }
+
+    private void DisableRotatorAndSpawner() {
+        rotator.enabled = false;
+        spawner.enabled = false;
     }
 
     public bool IsGameEnd () {
         return isGameEnd;
     }
 
-    public void Restart() {
+    public void RestartGame() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
