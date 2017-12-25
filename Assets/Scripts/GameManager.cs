@@ -33,6 +33,11 @@ public class GameManager : MonoBehaviour {
         Transform rightCollider = new GameObject().transform;
         Transform leftCollider = new GameObject().transform;
 
+        topCollider.name = "Top Collider";
+        bottomCollider.name = "Bottom Collider";
+        rightCollider.name = "Right Collider";
+        leftCollider.name = "Left Collider";
+
         // Add the colliders
         topCollider.gameObject.AddComponent<BoxCollider2D>();
         bottomCollider.gameObject.AddComponent<BoxCollider2D>();
