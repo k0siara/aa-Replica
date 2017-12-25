@@ -10,10 +10,7 @@ public class GameManager : MonoBehaviour {
     public Spawner spawner;
     public Animator animator;
 
-    [SerializeField]
     private float colDepth;
-
-    [SerializeField]
     private float zPosition;
 
     private bool isGameEnd;
