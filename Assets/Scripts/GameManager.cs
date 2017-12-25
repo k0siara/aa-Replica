@@ -50,8 +50,12 @@ public class GameManager : MonoBehaviour {
         Vector3 cameraPos = Camera.main.transform.position;
 
         Vector2 screenSize;
-        screenSize.x = Vector2.Distance(Camera.main.ScreenToWorldPoint(new Vector2(0, 0)), Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, 0))) * 0.5f;
-        screenSize.y = Vector2.Distance(Camera.main.ScreenToWorldPoint(new Vector2(0, 0)), Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height))) * 0.5f;
+        screenSize.x = Vector2.Distance(
+            Camera.main.ScreenToWorldPoint(new Vector2(0, 0)), 
+            Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, 0))) * 0.5f;
+        screenSize.y = Vector2.Distance(
+            Camera.main.ScreenToWorldPoint(new Vector2(0, 0)), 
+            Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height))) * 0.5f;
 
         //Change our scale and positions to match the edges of the screen...
         rightCollider.localScale = new Vector3(colDepth, screenSize.y * 2, colDepth);
