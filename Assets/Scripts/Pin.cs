@@ -9,9 +9,9 @@ public class Pin : MonoBehaviour {
     public float speed;
     private bool isPinned;
 
-    private void Start ()
-    {
+    private void Start () {
         isPinned = false;
+        
     }
 
     private void Update () {
@@ -21,8 +21,7 @@ public class Pin : MonoBehaviour {
         }
 	}
 
-    private void OnTriggerEnter2D (Collider2D col)
-    {
+    private void OnTriggerEnter2D (Collider2D col) {
         if (col.tag == "Rotator" && !FindObjectOfType<GameManager>().IsGameEnd())
         {
             transform.SetParent(col.transform);
