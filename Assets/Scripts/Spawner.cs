@@ -6,13 +6,7 @@ public class Spawner : MonoBehaviour {
 
     public GameObject pinPrefab;
 
-	private void Update () {
-		if (Input.GetButtonDown("Fire1")) {
-            SpawnPin();
-        }
-	}
-
-    void SpawnPin() {
+    public void SpawnPin() {
         Instantiate(pinPrefab, transform.position, transform.rotation);
     }
 

@@ -21,11 +21,17 @@ public class GameManager : MonoBehaviour {
     public Animator animator;
 
     public GameObject gameOverMenuUI;
-    public bool isGameEnd; // TODO try to remove
+    public bool isGameEnd;
 
-    private void Start () {
+    private void Start() {
         gameOverMenuUI.SetActive(false);
         isGameEnd = false;
+    }
+
+    private void Update() {
+        if (Input.GetButtonDown("Fire1")) {
+            spawner.SpawnPin();
+        }
     }
 
     public void EndGame () {
