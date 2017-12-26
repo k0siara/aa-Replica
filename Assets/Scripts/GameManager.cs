@@ -28,35 +28,25 @@ public class GameManager : MonoBehaviour {
         isGameEnd = false;
     }
 
-    private void Update() {
-        if (Input.GetButtonDown("Fire1") && isGameEnd) {
-            RestartGame();
-        }
-    }
-
     public void EndGame () {
         if (!isGameEnd) {
             isGameEnd = true;
 
-            MakePinsFall(rotator.transform);
-            spawner.SetTriger(false);
-
             DisableRotatorAndSpawner();
             animator.SetTrigger("EndGame");
+
+            spawner.SetTriger(false);
+
+            MakePinsFall(rotator.transform);
         }
 
-        // gameOverUI.SetActive(false);
+        gameOverUI.SetActive(true);
     }
 
-    private void MakePinsFall(Transform pins) {
+    private void MakePinsFall(Transform pins) { 
         foreach (Transform child in pins) {
             child.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-            //transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
 
-            if (child.childCount > 0) {
-                child.GetChild(0).parent.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-            }
-            
             child.GetComponent<CircleCollider2D>().isTrigger = false;
             child.GetChild(0).GetComponent<BoxCollider2D>().isTrigger = false;
         }
@@ -72,6 +62,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void RestartGame() {
+        gameOverUI.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         isGameEnd = false;
     }

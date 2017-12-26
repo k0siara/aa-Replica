@@ -21,11 +21,9 @@ public class Pin : MonoBehaviour {
 	}
 
     private void OnTriggerEnter2D (Collider2D col) {
-        if (col.tag == "Rotator" || col.tag == "Pin") {
-            transform.SetParent(col.transform);
-        }
 
         if (col.tag == "Rotator") {
+            transform.SetParent(col.transform);
             isPinned = true;
             
             if (!GameManager.instance.isGameEnd) {
@@ -33,6 +31,7 @@ public class Pin : MonoBehaviour {
             }
 
         } else if (col.tag == "Pin") {
+            transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             GameManager.instance.EndGame();
         }
     }
