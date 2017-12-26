@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour {
 
-    public GameObject pauseMenuUI;
+    public GameObject mainMenuUI;
 
     private void Update() {
         
     }
 
     public void onPlayButtonTouch() {
-        pauseMenuUI.active = false;
+        mainMenuUI.active = false;
     }
 
     public void onQuitButtonTouch() {
