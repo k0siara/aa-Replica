@@ -6,11 +6,21 @@ using System;
 
 public class GameManager : MonoBehaviour {
 
+    #region Singleton
+
+    public static GameManager instance;
+
+    private void Awake() {
+        instance = this;
+    }
+
+    #endregion
+
     public Rotator rotator;
     public Spawner spawner;
     public Animator animator;
 
-    private bool isGameEnd;
+    public bool isGameEnd;
 
     private void Start () {
         isGameEnd = false;
@@ -42,5 +52,6 @@ public class GameManager : MonoBehaviour {
 
     public void RestartGame() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        isGameEnd = false;
     }
 }
