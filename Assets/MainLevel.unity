@@ -367,7 +367,7 @@ GameObject:
   - component: {fileID: 292768527}
   - component: {fileID: 292768526}
   m_Layer: 0
-  m_Name: PinSpawn
+  m_Name: PinSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -938,6 +938,10 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1525275151104272, guid: 0c5dc0d4f112cec4b828f3df8330e88d, type: 2}
+      propertyPath: m_Name
+      value: PinSpawner
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0c5dc0d4f112cec4b828f3df8330e88d, type: 2}
   m_IsPrefabParent: 0
@@ -1047,7 +1051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93036d1021c1b704eb471da55f3af214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenuUI: {fileID: 0}
+  mainMenuUI: {fileID: 1659846286}
 --- !u!1001 &1528734558
 Prefab:
   m_ObjectHideFlags: 0
@@ -1091,6 +1095,10 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1421549197449748, guid: fc82354a5f96e1e4eacdf2bd2e21fcb4, type: 2}
+      propertyPath: m_Name
+      value: Rotator
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fc82354a5f96e1e4eacdf2bd2e21fcb4, type: 2}
@@ -1309,7 +1317,7 @@ GameObject:
   - component: {fileID: 1937009774}
   - component: {fileID: 1937009775}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Rotator
   m_TagString: Rotator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

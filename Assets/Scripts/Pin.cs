@@ -21,22 +21,26 @@ public class Pin : MonoBehaviour {
 	}
 
     private void OnTriggerEnter2D (Collider2D col) {
-        if (col.tag == "Rotator" && !GameManager.instance.isGameEnd) {
-            transform.SetParent(col.transform);
-            Score.points += 1;
-            isPinned = true;
-        } else if (col.tag == "Rotator" && GameManager.instance.isGameEnd) {
-            transform.SetParent(col.transform);
-            isPinned = true;
-        } else if (col.tag == "Pin") {
-            if (col.transform.parent != null) {
+        if (col.tag == "Pin") {
+            if (Collider2DUtils.HasParent(col)) {
+                GameManager.instance.EndGame();
+                    
                 MakePinsFall(col.transform.parent);
 
-                GameManager.instance.EndGame();
+                
                 FindObjectOfType<Spawner>().SetTriger(false);
+            }
+        } else if (col.tag == "Rotator") {
+            transform.SetParent(col.transform);
+            isPinned = true;
+
+            if (!GameManager.instance.isGameEnd) {
+                Score.points += 1;
             }
         }
     }
+
+    
 
     private void MakePinsFall(Transform pins) {
         foreach (Transform child in pins) {
