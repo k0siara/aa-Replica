@@ -6,17 +6,13 @@ public class MainMenu : MonoBehaviour {
 
     public GameObject mainMenuUI;
 
-    private void Update() {
-        
-    }
-
-    public void onPlayButtonTouch() {
-        mainMenuUI.active = false;
+    public void OnPlayButtonClick() {
+        mainMenuUI.SetActive(false);
 
         // TODO change screen from Menu to Main
     }
 
-    public void onQuitButtonTouch() {
+    public void OnQuitButtonClick() {
         Application.Quit();
         Debug.Log("QUIT !");
     }
