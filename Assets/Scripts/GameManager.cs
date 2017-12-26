@@ -16,16 +16,15 @@ public class GameManager : MonoBehaviour {
 
     #endregion
 
-    public GameObject gameOverUI;
-
     public Rotator rotator;
     public Spawner spawner;
     public Animator animator;
 
+    public GameObject gameOverMenuUI;
     public bool isGameEnd; // TODO try to remove
 
     private void Start () {
-        gameOverUI.SetActive(false);
+        gameOverMenuUI.SetActive(false);
         isGameEnd = false;
     }
 
@@ -41,7 +40,7 @@ public class GameManager : MonoBehaviour {
             MakePinsFall(rotator.transform);
         }
 
-        gameOverUI.SetActive(true);
+        gameOverMenuUI.SetActive(true);
     }
 
     private void MakePinsFall(Transform pins) { 
@@ -63,7 +62,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void RestartGame() {
-        gameOverUI.SetActive(false);
+        gameOverMenuUI.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         isGameEnd = false;
     }
