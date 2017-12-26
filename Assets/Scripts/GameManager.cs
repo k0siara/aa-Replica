@@ -16,11 +16,13 @@ public class GameManager : MonoBehaviour {
 
     #endregion
 
+    public GameObject gameOverUI;
+
     public Rotator rotator;
     public Spawner spawner;
     public Animator animator;
 
-    public bool isGameEnd;
+    public bool isGameEnd; // TODO try to remove
 
     private void Start () {
         isGameEnd = false;
@@ -39,6 +41,8 @@ public class GameManager : MonoBehaviour {
             DisableRotatorAndSpawner();
             animator.SetTrigger("EndGame");
         }
+
+        // gameOverUI.SetActive(false);
     }
 
     private void DisableRotatorAndSpawner() {

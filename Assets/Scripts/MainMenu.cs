@@ -12,6 +12,8 @@ public class MainMenu : MonoBehaviour {
 
     public void onPlayButtonTouch() {
         mainMenuUI.active = false;
+
+        // TODO change screen from Menu to Main
     }
 
     public void onQuitButtonTouch() {
