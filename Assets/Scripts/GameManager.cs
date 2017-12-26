@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour {
     public bool isGameEnd; // TODO try to remove
 
     private void Start () {
+        gameOverUI.SetActive(false);
         isGameEnd = false;
     }
 
