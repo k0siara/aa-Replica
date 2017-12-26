@@ -38,11 +38,28 @@ public class GameManager : MonoBehaviour {
         if (!isGameEnd) {
             isGameEnd = true;
 
+            MakePinsFall(rotator.transform);
+            spawner.SetTriger(false);
+
             DisableRotatorAndSpawner();
             animator.SetTrigger("EndGame");
         }
 
         // gameOverUI.SetActive(false);
+    }
+
+    private void MakePinsFall(Transform pins) {
+        foreach (Transform child in pins) {
+            child.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            //transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+
+            if (child.childCount > 0) {
+                child.GetChild(0).parent.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            }
+            
+            child.GetComponent<CircleCollider2D>().isTrigger = false;
+            child.GetChild(0).GetComponent<BoxCollider2D>().isTrigger = false;
+        }
     }
 
     private void DisableRotatorAndSpawner() {
