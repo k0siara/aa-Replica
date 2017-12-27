@@ -21,18 +21,30 @@ public class Pin : MonoBehaviour {
 	}
 
     private void OnTriggerEnter2D (Collider2D col) {
-
         if (col.tag == "Rotator") {
             transform.SetParent(col.transform);
             isPinned = true;
-            
-            if (!GameManager.instance.isGameEnd) {
-                Score.points += 1;
-            }
+
+            Score.points += 1;
 
         } else if (col.tag == "Pin") {
-            transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
             GameManager.instance.EndGame();
         }
     }
+
+    public void Fall() {
+        SetTrigger(false);
+        SetBodyType(RigidbodyType2D.Dynamic);
+        isPinned = true;
+    }
+
+    public void SetTrigger(bool triger) {
+        transform.GetComponent<CircleCollider2D>().isTrigger = triger;
+        transform.GetChild(0).GetComponent<BoxCollider2D>().isTrigger = triger;
+    }
+
+    public void SetBodyType(RigidbodyType2D bodyType) {
+        transform.GetComponent<Rigidbody2D>().bodyType = bodyType;
+    }
+
 }

@@ -43,19 +43,12 @@ public class GameManager : MonoBehaviour {
 
             spawner.SetTriger(false);
 
-            MakePinsFall(rotator.transform);
+            foreach (Pin pin in FindObjectsOfType<Pin>()) {
+                pin.Fall();
+            }
         }
 
         gameOverMenuUI.SetActive(true);
-    }
-
-    private void MakePinsFall(Transform pins) { 
-        foreach (Transform child in pins) {
-            child.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-
-            child.GetComponent<CircleCollider2D>().isTrigger = false;
-            child.GetChild(0).GetComponent<BoxCollider2D>().isTrigger = false;
-        }
     }
 
     private void DisableRotatorAndSpawner() {
