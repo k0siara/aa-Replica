@@ -33,9 +33,9 @@ public class Pin : MonoBehaviour {
     }
 
     public void Fall() {
+        isPinned = true;
         SetTrigger(false);
         SetBodyType(RigidbodyType2D.Dynamic);
-        isPinned = true;
     }
 
     public void SetTrigger(bool triger) {

@@ -56,10 +56,6 @@ public class GameManager : MonoBehaviour {
         spawner.enabled = false;
     }
 
-    public bool IsGameEnd () {
-        return isGameEnd;
-    }
-
     public void RestartGame() {
         gameOverMenuUI.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
