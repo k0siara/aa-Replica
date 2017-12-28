@@ -30,7 +30,9 @@ public class GameManager : MonoBehaviour {
 
     private void Update() {
         if (Input.GetButtonDown("Fire1")) {
-            spawner.SpawnPin();
+            if (!isGameEnd) {
+                spawner.SpawnPin();
+            }
         }
     }
 
